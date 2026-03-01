@@ -1,73 +1,113 @@
-# React + TypeScript + Vite
+# Snaarp Dashboard - Frontend Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive drag-and-drop dashboard built with React, TypeScript, and Tailwind CSS. This project demonstrates advanced frontend development skills including complex state management, data visualization, and responsive UI design.
 
-Currently, two official plugins are available:
+![Dashboard Preview](https://snaarp.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### Core Functionality
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Drag & Drop Interface**: Reorganize dashboard widgets seamlessly using `@hello-pangea/dnd`
+- **Real-time Data Visualization**: Interactive charts using Recharts
+- **Responsive Design**: Fully responsive layout that works on all screen sizes
+- **Type Safety**: 100% TypeScript coverage with strict type checking
 
-## Expanding the ESLint configuration
+### Dashboard Widgets
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Cloud Network**: Overview of users, groups, uploads, and departments with trend indicators
+2. **Storage Management**: Visual storage breakdown with usage alerts
+3. **File Sharing Analytics**: Monthly file sharing statistics with stacked bar charts
+4. **Active Users Map**: Geographic user distribution with country-wise breakdown
+5. **Device Management**: Comprehensive device and email statistics
+6. **Productivity Report**: Team productivity metrics with visual trends
+7. **Email Analytics**: Email traffic analysis with pie and area charts
+8. **Online Users Table**: Real-time user activity monitoring
+9. **App Activity Report**: Application usage tracking
+10. **Web Activity**: Browser and web app usage statistics
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠 Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Category    | Technology              |
+| ----------- | ----------------------- |
+| Framework   | React 18                |
+| Language    | TypeScript              |
+| Styling     | Tailwind CSS            |
+| Drag & Drop | @hello-pangea/dnd       |
+| Charts      | Recharts                |
+| Icons       | Lucide React            |
+| Build Tool  | Create React App / Vite |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📁 Project Structure
+
+src/
+├── components/
+│ ├── Layout/ # Sidebar, Header, Layout wrapper
+│ ├── Dashboard/ # Main dashboard logic, DnD wrapper
+│ ├── Widgets/ # Individual dashboard widgets
+│ ├── Charts/ # Reusable chart components
+│ ├── Cards/ # Stat cards and UI components
+│ └── Common/ # Shared utilities and icons
+├── types/ # TypeScript interfaces and types
+├── data/ # Mock data and constants
+└── App.tsx # Application entry point
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+- Node.js 16+
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/snaarp-dashboard.git
+
+# Navigate to project directory
+cd snaarp-dashboard
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application will open at http://localhost:5173
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Build for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+npm run build
+
+## 🎯 Key Implementation Details
+
+# Drag & Drop Architecture
+
+- Implemented using @hello-pangea/dnd (maintained fork of react-beautiful-dnd)
+- StrictMode-compatible wrapper for React 18
+- Smooth animations and visual feedback during drag operations
+- Persistent state management for widget order
+- Performance Optimizations
+- Memoized chart components to prevent unnecessary re-renders
+- High contrast mode compatibility
+
+## 🧪 Testing Strategy
+
+Due to time constraints, comprehensive test coverage was planned but not fully implemented. Recommended test approach:
+
+# Unit tests for components
+
+npm test
+
+# E2E tests for drag-and-drop flows
+
+npm run cypress
+
+## 📝 Design Decisions
+
+- Component Composition: Chose composition over inheritance for widget flexibility
+- State Management: Used React hooks (useState) over Redux for simpler state needs
+- Styling: Tailwind CSS for rapid, consistent styling without CSS-in-JS overhead
+- Charts: Recharts for React integration and customization flexibility
