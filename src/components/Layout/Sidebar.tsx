@@ -37,7 +37,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       <div className="p-6">
         <h1 className="text-2xl font-bold text-gray-900">Snaarp</h1>
       </div>
-      <nav className="px-4 pb-6">
+      <nav className="px-4 pb-20">
         {menuItems.map((item) => {
           const Icon = item.icon;
           return (
@@ -56,7 +56,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           );
         })}
       </nav>
-      <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
+      <div className="fixed bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white font-semibold">
             CS
